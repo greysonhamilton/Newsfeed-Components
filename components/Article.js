@@ -94,6 +94,27 @@ const data = [
   Your component is a function that takes an article object as its only argument,
   and returns a DOM node looking like the one below:
 
+  const articleMaker = (news) => {
+    const div = document.createElement('div');
+    div.classList('article');
+    const h2 = document.createElement('h2');
+    const p = document.createElement('p');
+    p:firstChild.classList('date');
+    const span = document.createElement('span');
+    span.classList('expandButton');
+    div.appendChild(h2);
+    div.appendChild(p);
+    div.appendChild(p);
+    div.appendChild(p);
+    div.appendChild(p);
+    div.appendChild(span);
+
+    span.expandButton.addEventListener('click' (e) => {
+
+    });
+  }
+
+  articleMaker.forEach('');
   <div class="article">
     <h2>{title of the article}</h2>
     <p class="date">{date of the article}</p>
