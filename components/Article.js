@@ -115,31 +115,30 @@ const data = [
   Refresh the page to see the new article.
 */
 
-function articleMaker(news) {
+function articleMaker(data) {
   const div = document.createElement('div');
   const h2 = document.createElement('h2');
-  const p = document.createElement('p');
+  const p1 = document.createElement('p');
+  const p2 = document.createElement('p');
+  const p3 = document.createElement('p');
+  const p4 = document.createElement('p');
   const span = document.createElement('span');
   div.appendChild(h2);
-  div.appendChild(p);
-  div.appendChild(p);
-  div.appendChild(p);
-  div.appendChild(p);
+  div.appendChild(p1);
+  div.appendChild(p2);
+  div.appendChild(p3);
+  div.appendChild(p4);
   div.appendChild(span);
-  div.classList('article');
-  h2.textContent = news.title;
-  document.querySelector('p:first child').classList('date');
-  span.classList('expandButton');
-  const p1 = document.querySelector('p:first child');
-  p1.textContent = news.date;
-  const p2 = document.querySelector('p:nth Child(2)');
-  p2.textContent = news.firstParagraph;
-  const p3 = document.querySelector('p:nth child(3)');
-  p3.textContent = news.secondParagraph;
-  const p4 = document.querySelector('p:nth child(4)');
-  p4.textContent = news.thirdParagraph;
+  div.classList.add('article');
+  p1.classList.add('date');
+  span.classList.add('expandButton');
+  h2.textContent = data.title;
+  p1.textContent = data.date;
+  p2.textContent = data.firstParagraph;
+  p3.textContent = data.secondParagraph;
+  p4.textContent = data.thirdParagraph;
   span.textContent = '+';
-  span.expandButton.addEventListener('click', () => {
+  span.addEventListener('click', () => {
   span.classList.toggle('article-open');
   });
 
@@ -147,13 +146,10 @@ function articleMaker(news) {
 
 };
 
-  articleMaker(data);
-
-
 const articles = document.querySelector('.articles');
 
-data.forEach((articleObj) => {
+data.forEach((data) => {
 
-  const articleData = articleMaker(articleObj);
+  const articleData = articleMaker(data);
   articles.appendChild(articleData);
 });
