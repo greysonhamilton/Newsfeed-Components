@@ -130,23 +130,30 @@ function articleMaker(news) {
   h2.textContent = news.title;
   document.querySelector('p:first child').classList('date');
   span.classList('expandButton');
-  document.querySelector('p:first child').textContent = news.date;
-  document.querySelector('p:nth Child(2)').textContent = news.firstParagraph;
-  document.querySelector('p:nth child(3)').textContent = news.secondParagraph;
-  document.querySelector('p:nth child(4)').textContent = news.thirdParagraph;
-  span.textContent = '\u25bc';
-  span.expandButton.addEventListener('click', (e) => {
-  news.classList.toggle('article-open');
+  const p1 = document.querySelector('p:first child');
+  p1.textContent = news.date;
+  const p2 = document.querySelector('p:nth Child(2)');
+  p2.textContent = news.firstParagraph;
+  const p3 = document.querySelector('p:nth child(3)');
+  p3.textContent = news.secondParagraph;
+  const p4 = document.querySelector('p:nth child(4)');
+  p4.textContent = news.thirdParagraph;
+  span.textContent = '+';
+  span.expandButton.addEventListener('click', () => {
+  span.classList.toggle('article-open');
   });
 
-  return articleMaker(data);
-}
+  return div;
 
-function dispData(news) {
-  
-  for (let i = 0, i < data.length, i++) {
-  
-    const art = dispData(news[i]);
-    document.querySelector('.articles').appendChild(articleMaker(data));
-  }
-} dispData(data);
+};
+
+  articleMaker(data);
+
+
+const articles = document.querySelector('.articles');
+
+data.forEach((articleObj) => {
+
+  const articleData = articleMaker(articleObj);
+  articles.appendChild(articleData);
+});
