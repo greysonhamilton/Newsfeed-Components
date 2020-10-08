@@ -41,13 +41,13 @@ const menuMaker = (menuItems) => {
 
   menuItems.forEach((item) => {
 
-    const menuItem = createElement('li');
+    const menuItem = document.createElement('li');
     menuItem.textContent = item;
     ul.appendChild(menuItem);
 
   });
 
-  const menuButton = document.querySelector('.menu-button');
+  const menuButton = document.querySelector('img.menu-button');
 menuButton.addEventListener('click', () => {
   menu.classList.toggle('menu--open');
 
@@ -56,5 +56,5 @@ menuButton.addEventListener('click', () => {
   return menu;
 }
 
-const header = document.querySelector('.header')
+const header = document.querySelector('.header');
 header.appendChild(menuMaker(menuItems));

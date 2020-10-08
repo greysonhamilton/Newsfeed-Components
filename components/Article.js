@@ -123,12 +123,6 @@ function articleMaker(data) {
   const p3 = document.createElement('p');
   const p4 = document.createElement('p');
   const span = document.createElement('span');
-  div.appendChild(h2);
-  div.appendChild(p1);
-  div.appendChild(p2);
-  div.appendChild(p3);
-  div.appendChild(p4);
-  div.appendChild(span);
   div.classList.add('article');
   p1.classList.add('date');
   span.classList.add('expandButton');
@@ -138,8 +132,14 @@ function articleMaker(data) {
   p3.textContent = data.secondParagraph;
   p4.textContent = data.thirdParagraph;
   span.textContent = '+';
+  div.appendChild(h2);
+  div.appendChild(p1);
+  div.appendChild(p2);
+  div.appendChild(p3);
+  div.appendChild(p4);
+  div.appendChild(span);
   span.addEventListener('click', () => {
-  span.classList.toggle('article-open');
+  div.classList.toggle('article-open');
   });
 
   return div;
@@ -149,7 +149,7 @@ function articleMaker(data) {
 const articles = document.querySelector('.articles');
 
 data.forEach((data) => {
+const art = articleMaker(data);
+  articles.appendChild(art);
 
-  const articleData = articleMaker(data);
-  articles.appendChild(articleData);
 });
